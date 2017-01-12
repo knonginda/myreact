@@ -1,3 +1,7 @@
-require('../css/style.css');
-document.write('It works.');
-document.write(require('./module.js'));
+import '../css/style.css';
+
+import React from 'react';
+import { render } from 'react-dom';
+
+var myDivElement = '<div className="foo">444</div>';
+render(myDivElement, document.getElementById('example'));
