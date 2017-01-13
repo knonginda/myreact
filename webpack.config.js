@@ -3,7 +3,7 @@ var webpack = require('webpack'),
     path = require('path');
 
 var webpackConfig = {
-  entry:  path.resolve(__dirname, './js/index.js'),
+  entry:  path.resolve(__dirname, './js/index.jsx'),
   output: {
     path: path.resolve(__dirname, './build'),
     filename: 'app.js'
@@ -13,6 +13,14 @@ var webpackConfig = {
       {
         test: /\.css$/,
         loader: "style-loader!css-loader"
+      },
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015', 'react']
+        }
       }
     ]
   },
